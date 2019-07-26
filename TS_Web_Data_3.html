@@ -13382,6 +13382,8 @@ div#notebook {
     <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FIELD ph&#39;</span><span class="p">,</span> <span class="s1">&#39;FIELD CONDUCTIVITY&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="s1">&#39;FIELD DISSOLVED OXYGEN&#39;</span><span class="p">,</span> <span class="s1">&#39;FLOW&#39;</span><span class="p">,</span> <span class="s1">&#39;LAB CONDUCTIVITY&#39;</span><span class="p">,</span> <span class="s1">&#39;SULFATE&#39;</span><span class="p">,</span> <span class="s1">&#39;DISSOLVED SOLIDS&#39;</span><span class="p">,</span> <span class="s1">&#39;SUSPENDED SOLIDS&#39;</span><span class="p">,</span> <span class="s1">&#39;LAB pH&#39;</span><span class="p">,</span> <span class="s1">&#39;ALKALINITY&#39;</span><span class="p">,</span> <span class="s1">&#39;HOT ACIDITY&#39;</span><span class="p">,</span> <span class="s1">&#39;MINERAL ACIDITY&#39;</span><span class="p">,</span> <span class="s1">&#39;IRON_D&#39;</span><span class="p">,</span> <span class="s1">&#39;MANGANESE_D&#39;</span><span class="p">,</span> <span class="s1">&#39;ALUMINUM_D&#39;</span><span class="p">,</span> <span class="s1">&#39;IRON_T&#39;</span><span class="p">,</span> <span class="s1">&#39;MANGANESE_T&#39;</span><span class="p">,</span> <span class="s1">&#39;ALUMINUM_T&#39;</span><span class="p">]</span>
     <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;FROZEN&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df_comb_concat_old</span><span class="p">[</span><span class="s1">&#39;FLOW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_comb_concat_old</span><span class="p">[</span><span class="s1">&#39;FLOW&#39;</span><span class="p">])</span>
     
     <span class="n">df_comb_concat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_comb_concat_old</span><span class="p">,</span> <span class="n">df_comb_concat</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
       
@@ -13569,6 +13571,84 @@ div#notebook {
       Loading widgets...
     </button>
   </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_comb_concat</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>FIELD ph                  float64
+FIELD CONDUCTIVITY        float64
+TEMPERATURE               float64
+FIELD DISSOLVED OXYGEN    float64
+FLOW                      float64
+LAB CONDUCTIVITY          float64
+SULFATE                   float64
+DISSOLVED SOLIDS          float64
+SUSPENDED SOLIDS          float64
+LAB pH                    float64
+ALKALINITY                float64
+HOT ACIDITY               float64
+MINERAL ACIDITY           float64
+IRON_D                    float64
+MANGANESE_D               float64
+ALUMINUM_D                float64
+IRON_T                    float64
+MANGANESE_T               float64
+ALUMINUM_T                float64
+ANTIMONY                  float64
+ARSENIC                   float64
+BERYLLIUM                 float64
+CADMIUM                   float64
+CHROMIUM                  float64
+COPPER                    float64
+LEAD                      float64
+MERCURY                   float64
+NICKEL                    float64
+SELENIUM                  float64
+SILVER                    float64
+THALLIUM                  float64
+ZINC                      float64
+CYANIDE                   float64
+PHENOLS                   float64
+NITRATE                   float64
+SODIUM                    float64
+CALCIUM                   float64
+MAGNESIUM                 float64
+POTASSIUM                 float64
+BI-CARBONATE              float64
+CARBONATE                 float64
+PHOSPHATE                 float64
+dtype: object</pre>
+</div>
 
 </div>
 
