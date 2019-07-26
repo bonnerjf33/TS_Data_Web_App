@@ -13409,8 +13409,8 @@ div#notebook {
     <span class="c1">#with output_four:</span>
         <span class="c1">#display(df_comb_concat)</span>
     
-    <span class="k">with</span> <span class="n">output_five</span><span class="p">:</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">dfdesc</span><span class="p">)</span>
+    <span class="c1">#with output_five:</span>
+        <span class="c1">#display(dfdesc)</span>
         
     <span class="k">with</span> <span class="n">output_six</span><span class="p">:</span>
         <span class="n">display</span><span class="p">(</span><span class="n">dfcorr</span><span class="p">)</span>
@@ -13595,7 +13595,30 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#HIDDEN</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">output_five</span><span class="p">)</span>
+<span class="n">box3</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Display Water Quality Statistics&#39;</span><span class="p">)</span>
+
+<span class="n">data1_output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">changed2</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="n">data1_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">data1_output</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">d</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">dfdesc</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data1_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">checkbox_eventhandler</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">changed2</span><span class="p">(</span><span class="n">dropdown_stations</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">checkbox_eventhandler2</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">box3</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">data1_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    
+<span class="n">box3</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">checkbox_eventhandler</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">dropdown_stations</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">checkbox_eventhandler2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">box3</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data1_output</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13605,6 +13628,20 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
 
 <div class="output_area">
 
@@ -13814,12 +13851,83 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Pearson-R-Coefficients-for-Selected-Trend-Station-Water-Quality-Parameters:">Pearson R Coefficients for Selected Trend Station Water Quality Parameters:<a class="anchor-link" href="#Pearson-R-Coefficients-for-Selected-Trend-Station-Water-Quality-Parameters:">&#182;</a></h3>
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#HIDDEN</span>
+
+<span class="n">box4</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Display Pearson R Values&#39;</span><span class="p">)</span>
+
+<span class="n">data2_output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">changed3</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="n">data2_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">data2_output</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">e</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">dfcorr</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data2_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">checkbox_eventhandler</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">changed3</span><span class="p">(</span><span class="n">dropdown_stations</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">checkbox_eventhandler2</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">box4</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">data2_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    
+<span class="n">box4</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">checkbox_eventhandler</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">dropdown_stations</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">checkbox_eventhandler2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">box4</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">data2_output</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
 </div>
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
 
   
 
@@ -13862,7 +13970,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Pearson-Correlation-Coeffiecient-Matrix-(optional):">Pearson Correlation Coeffiecient Matrix (optional):<a class="anchor-link" href="#Pearson-Correlation-Coeffiecient-Matrix-(optional):">&#182;</a></h3><p>Note: This Process May Take up to 10 sec. to Return a Result</p>
+<h3 id="Pearson-Correlation-Coeffiecient-Matrix:">Pearson Correlation Coeffiecient Matrix:<a class="anchor-link" href="#Pearson-Correlation-Coeffiecient-Matrix:">&#182;</a></h3><p>Note: This Process May Take up to 10 sec. to Return a Result</p>
 
 </div>
 </div>
