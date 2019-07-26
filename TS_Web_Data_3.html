@@ -13381,6 +13381,7 @@ div#notebook {
     <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ts</span><span class="p">),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FIELD ph&#39;</span><span class="p">,</span> <span class="s1">&#39;FIELD CONDUCTIVITY&#39;</span><span class="p">,</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="s1">&#39;FIELD DISSOLVED OXYGEN&#39;</span><span class="p">,</span> <span class="s1">&#39;FLOW&#39;</span><span class="p">,</span> <span class="s1">&#39;LAB CONDUCTIVITY&#39;</span><span class="p">,</span> <span class="s1">&#39;SULFATE&#39;</span><span class="p">,</span> <span class="s1">&#39;DISSOLVED SOLIDS&#39;</span><span class="p">,</span> <span class="s1">&#39;SUSPENDED SOLIDS&#39;</span><span class="p">,</span> <span class="s1">&#39;LAB pH&#39;</span><span class="p">,</span> <span class="s1">&#39;ALKALINITY&#39;</span><span class="p">,</span> <span class="s1">&#39;HOT ACIDITY&#39;</span><span class="p">,</span> <span class="s1">&#39;MINERAL ACIDITY&#39;</span><span class="p">,</span> <span class="s1">&#39;IRON_D&#39;</span><span class="p">,</span> <span class="s1">&#39;MANGANESE_D&#39;</span><span class="p">,</span> <span class="s1">&#39;ALUMINUM_D&#39;</span><span class="p">,</span> <span class="s1">&#39;IRON_T&#39;</span><span class="p">,</span> <span class="s1">&#39;MANGANESE_T&#39;</span><span class="p">,</span> <span class="s1">&#39;ALUMINUM_T&#39;</span><span class="p">]</span>
+    <span class="n">df_comb_concat_old</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;FROZEN&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
     <span class="n">df_comb_concat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_comb_concat_old</span><span class="p">,</span> <span class="n">df_comb_concat</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
       
@@ -13501,13 +13502,15 @@ div#notebook {
 
   
 
-  <div class="
+  <div class="nbinteract-hide_in
       cell border-box-sizing code_cell rendered">
     <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">box2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Display Water Quality Data&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#HIDDEN</span>
+
+<span class="n">box2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Display Water Quality Data&#39;</span><span class="p">)</span>
 
 <span class="n">data_output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 
