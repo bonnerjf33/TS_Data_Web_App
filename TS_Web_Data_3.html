@@ -13690,17 +13690,24 @@ div#notebook {
 <span class="n">dropdown_param3</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">unique_sorted_values_plus_none</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Parameter 2&#39;</span><span class="p">)</span>
 <span class="n">button1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Display/Update Plot&#39;</span><span class="p">)</span>
 
+<span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>
+
+<span class="n">year_slider</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntRangeSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;40%&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;20px&#39;</span><span class="p">),</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Data Range: (2002 to 2018)&#39;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span><span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span><span class="n">readout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">readout_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+
 <span class="n">plot1_output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">on_button_click</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">param3</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">on_button_click</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">param3</span><span class="p">,</span> <span class="n">year1</span><span class="p">,</span> <span class="n">year2</span><span class="p">):</span>
         <span class="n">plot1_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
         <span class="k">with</span> <span class="n">plot1_output</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">param</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_comb_concat</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NO DATA EXISTS FOR THE CHOSEN STATION/PARAMETER COMBINATION! PLEASE SELECT ANOTHER PARAMETER.&#39;</span><span class="p">)</span>
     
             <span class="k">elif</span> <span class="n">param3</span> <span class="o">==</span> <span class="s1">&#39;NONE&#39;</span> <span class="ow">and</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">df_comb_concat</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">year1</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">year2</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
-                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat</span><span class="p">[</span><span class="n">param</span><span class="p">],</span> <span class="s1">&#39;go--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
+                <span class="n">df_comb_concat_filt</span> <span class="o">=</span> <span class="n">df_comb_concat</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year1</span><span class="p">):</span><span class="nb">str</span><span class="p">(</span><span class="n">year2</span><span class="p">)]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat_filt</span><span class="p">[</span><span class="n">param</span><span class="p">],</span> <span class="s1">&#39;go--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
                 <span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;tab:green&#39;</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color1</span><span class="p">)</span>
@@ -13710,8 +13717,11 @@ div#notebook {
                 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
             
             <span class="k">elif</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">df_comb_concat</span> <span class="ow">and</span> <span class="n">param3</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_comb_concat</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">year1</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">year2</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
-                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat</span><span class="p">[</span><span class="n">param</span><span class="p">],</span> <span class="s1">&#39;go--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
+                <span class="n">df_comb_concat_filt</span> <span class="o">=</span> <span class="n">df_comb_concat</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year1</span><span class="p">):</span><span class="nb">str</span><span class="p">(</span><span class="n">year2</span><span class="p">)]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat_filt</span><span class="p">[</span><span class="n">param</span><span class="p">],</span> <span class="s1">&#39;go--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
                 <span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;tab:green&#39;</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color1</span><span class="p">)</span>
@@ -13722,8 +13732,11 @@ div#notebook {
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NO DATA EXISTS FOR THE SECOND SELECTED PARAMETER! PLEASE SELECT ANOTHER PARAMETER.&#39;</span><span class="p">)</span>
        
             <span class="k">else</span><span class="p">:</span>
+                <span class="n">year1</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">year2</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
-                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat</span><span class="p">[</span><span class="n">param</span><span class="p">],</span> <span class="s1">&#39;go--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
+                <span class="n">df_comb_concat_filt</span> <span class="o">=</span> <span class="n">df_comb_concat</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year1</span><span class="p">):</span><span class="nb">str</span><span class="p">(</span><span class="n">year2</span><span class="p">)]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat_filt</span><span class="p">[</span><span class="n">param</span><span class="p">],</span> <span class="s1">&#39;go--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">);</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>
                 <span class="n">color1</span> <span class="o">=</span> <span class="s1">&#39;tab:green&#39;</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color1</span><span class="p">)</span>
@@ -13734,17 +13747,18 @@ div#notebook {
                 <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>  <span class="c1"># instantiate a second axes that shares the same x-axis</span>
                 <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tab:blue&#39;</span>
                 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">param3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>  
-                <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat</span><span class="p">[</span><span class="n">param3</span><span class="p">],</span> <span class="s1">&#39;bo--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+                <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_comb_concat_filt</span><span class="p">[</span><span class="n">param3</span><span class="p">],</span> <span class="s1">&#39;bo--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
                 <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
                 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
         
 <span class="k">def</span> <span class="nf">button1_eventhandler</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
-    <span class="n">on_button_click</span><span class="p">(</span><span class="n">dropdown_param</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">dropdown_param3</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">on_button_click</span><span class="p">(</span><span class="n">dropdown_param</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">dropdown_param3</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">year_slider</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">button1</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">button1_eventhandler</span><span class="p">)</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">dropdown_param</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">dropdown_param3</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">year_slider</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">button1</span><span class="p">)</span>
 </pre></div>
 
@@ -13755,6 +13769,20 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
 
 <div class="output_area">
 
