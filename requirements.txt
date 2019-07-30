@@ -9,3 +9,4 @@ geopy
 arcgis
 geopandas
 plotly
+chart_studio
