@@ -10,3 +10,4 @@ arcgis
 geopandas
 plotly
 chart_studio
+cufflinks
