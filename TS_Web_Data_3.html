@@ -13759,6 +13759,12 @@ div#notebook {
 
 <span class="n">button1</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">button1_eventhandler</span><span class="p">)</span>
 
+
+<span class="k">def</span> <span class="nf">drop_eventhandler2</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">plot1_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    
+<span class="n">dropdown_stations</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">drop_eventhandler2</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+
 <span class="n">display</span><span class="p">(</span><span class="n">dropdown_param</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">dropdown_param3</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">year_slider</span><span class="p">)</span>
@@ -14011,6 +14017,11 @@ div#notebook {
     <span class="n">on_button_click2</span><span class="p">(</span><span class="n">dropdown_param1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">dropdown_param2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
 <span class="n">button2</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">button2_eventhandler</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">drop_eventhandler3</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
+    <span class="n">plot2_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+    
+<span class="n">dropdown_stations</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">drop_eventhandler3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">dropdown_param1</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">dropdown_param2</span><span class="p">)</span>
