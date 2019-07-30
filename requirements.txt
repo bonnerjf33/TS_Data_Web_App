@@ -8,6 +8,4 @@ seaborn
 geopy
 arcgis
 geopandas
-plotly
-chart_studio
-cufflinks
+mpld3
