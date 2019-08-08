@@ -1,4 +1,4 @@
-station_id,longitude,latitude,STATION_DE,SURF_ELEV
+station_id,longitude,latitude,station_de,elevation
 TS001,-81.66653,37.27538,DRY FK  CR-9 off Rt 16  400 ft above Andys Wrecker @ gas well,1287
 TS002,-81.65005,37.28957,JACOB FORK 400' upstream of Big Creek Branch,1356
 TS003,-81.65156,37.29078,BIG CK Rt. 16 below CR-9 first long hollow on left,1977
