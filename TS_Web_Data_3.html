@@ -13391,9 +13391,9 @@ div#notebook {
     
     <span class="n">df_comb_concat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_comb_concat_old</span><span class="p">,</span> <span class="n">df_comb_concat</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
       
-    <span class="k">global</span> <span class="n">dfdesc</span>
-    <span class="n">dfdesc</span> <span class="o">=</span> <span class="n">df_comb_concat</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-    <span class="n">dfdesc</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="c1">#global dfdesc</span>
+    <span class="c1">#dfdesc = df_comb_concat.describe()</span>
+    <span class="c1">#dfdesc.index.name = str(ts)</span>
 
     <span class="k">global</span> <span class="n">dfcorr</span>
     <span class="n">dfcorr</span> <span class="o">=</span> <span class="n">df_comb_concat</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
