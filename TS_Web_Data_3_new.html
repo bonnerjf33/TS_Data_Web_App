@@ -13530,7 +13530,9 @@ div#notebook {
 
 <span class="k">def</span> <span class="nf">on_button_click</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="n">param3</span><span class="p">,</span> <span class="n">year1</span><span class="p">,</span> <span class="n">year2</span><span class="p">):</span>
         <span class="n">plot1_output</span><span class="o">.</span><span class="n">clear_output</span><span class="p">()</span>
+        <span class="n">box2</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="n">box3</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">box4</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">global</span> <span class="n">df_comb_concat_filt</span>
         <span class="k">with</span> <span class="n">plot1_output</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">param</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_comb_concat</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
