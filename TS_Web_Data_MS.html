@@ -13260,7 +13260,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Select-Trend-Station:">Select Trend Station:<a class="anchor-link" href="#Select-Trend-Station:">&#182;</a></h2>
+<h2 id="Select-Trend-Station(s):">Select Trend Station(s):<a class="anchor-link" href="#Select-Trend-Station(s):">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13296,7 +13296,7 @@ div#notebook {
 <span class="n">plot_output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 
 <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>
-<span class="n">dropdown_stations</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">unique_sorted_values</span><span class="p">(</span><span class="n">df_comb</span><span class="o">.</span><span class="n">station_id</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Trend Station&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
+<span class="n">dropdown_stations</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">unique_sorted_values</span><span class="p">(</span><span class="n">df_comb</span><span class="o">.</span><span class="n">station_id</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Trend Station No. 1&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">common_filtering1</span><span class="p">(</span><span class="n">station</span><span class="p">):</span>
     
@@ -13417,8 +13417,25 @@ div#notebook {
     <span class="n">common_filtering1</span><span class="p">(</span><span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
     
 <span class="n">dropdown_stations</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">dropdown_stations_eventhandler</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>  
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
   
-<span class="n">display</span><span class="p">(</span><span class="n">dropdown_stations</span><span class="p">)</span>
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">dropdown_stations</span><span class="p">,</span> <span class="n">dropdown_stations2</span><span class="p">]</span>
+<span class="c1">#widgets.HBox(items)</span>
+<span class="n">widgets</span><span class="o">.</span><span class="n">GridBox</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">grid_template_columns</span><span class="o">=</span><span class="s2">&quot;repeat(10, 350px)&quot;</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -14163,12 +14180,6 @@ div#notebook {
 </div>
 
   </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Select-Second-Trend-Station:">Select Second Trend Station:<a class="anchor-link" href="#Select-Second-Trend-Station:">&#182;</a></h2>
-</div>
-</div>
-</div>
 
   
 
@@ -14201,7 +14212,7 @@ div#notebook {
 <span class="c1">#plot_output = widgets.Output()</span>
 
 <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>
-<span class="n">dropdown_stations2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">unique_sorted_values5</span><span class="p">(</span><span class="n">df_comb2</span><span class="o">.</span><span class="n">station_id</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Additional Trend Station&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
+<span class="n">dropdown_stations2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">unique_sorted_values5</span><span class="p">(</span><span class="n">df_comb2</span><span class="o">.</span><span class="n">station_id</span><span class="p">),</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Trend Station No. 2&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">common_filtering2</span><span class="p">(</span><span class="n">station</span><span class="p">):</span>
     
@@ -14322,39 +14333,16 @@ div#notebook {
     <span class="n">common_filtering2</span><span class="p">(</span><span class="n">change</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
     
 <span class="n">dropdown_stations2</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">dropdown_stations_eventhandler12</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>  
-  
-<span class="n">display</span><span class="p">(</span><span class="n">dropdown_stations2</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Additional-Trend-Station-Location-Information:">Additional Trend Station Location Information:<a class="anchor-link" href="#Additional-Trend-Station-Location-Information:">&#182;</a></h2>
+<h2 id="Second-Trend-Station-Location-Information:">Second Trend Station Location Information:<a class="anchor-link" href="#Second-Trend-Station-Location-Information:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14400,7 +14388,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Additional-Water-Quality-Data-Plots:">Additional Water Quality Data Plots:<a class="anchor-link" href="#Additional-Water-Quality-Data-Plots:">&#182;</a></h2>
+<h2 id="Second-Water-Quality-Data-Plots:">Second Water Quality Data Plots:<a class="anchor-link" href="#Second-Water-Quality-Data-Plots:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14631,7 +14619,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Additional-Water-Quality-Data:">Additional Water Quality Data:<a class="anchor-link" href="#Additional-Water-Quality-Data:">&#182;</a></h2>
+<h2 id="Second-Trend-Station-Water-Quality-Data:">Second Trend Station Water Quality Data:<a class="anchor-link" href="#Second-Trend-Station-Water-Quality-Data:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14719,7 +14707,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Additional-Water-Quality-Statistics:">Additional Water Quality Statistics:<a class="anchor-link" href="#Additional-Water-Quality-Statistics:">&#182;</a></h2>
+<h2 id="Second-Trend-Station-Water-Quality-Statistics:">Second Trend Station Water Quality Statistics:<a class="anchor-link" href="#Second-Trend-Station-Water-Quality-Statistics:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14812,7 +14800,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Additional-Water-Quality-Parameter-Correlation:">Additional Water Quality Parameter Correlation:<a class="anchor-link" href="#Additional-Water-Quality-Parameter-Correlation:">&#182;</a></h2>
+<h2 id="Second-Trend-Station-Water-Quality-Parameter-Correlation:">Second Trend Station Water Quality Parameter Correlation:<a class="anchor-link" href="#Second-Trend-Station-Water-Quality-Parameter-Correlation:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14905,7 +14893,7 @@ div#notebook {
   </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Additional-Water-Quality-Parameter-Comparison-by-Linear-Regression:">Additional Water Quality Parameter Comparison by Linear Regression:<a class="anchor-link" href="#Additional-Water-Quality-Parameter-Comparison-by-Linear-Regression:">&#182;</a></h2>
+<h2 id="Second-Trend-Station-Water-Quality-Parameter-Comparison-by-Linear-Regression:">Second Trend Station Water Quality Parameter Comparison by Linear Regression:<a class="anchor-link" href="#Second-Trend-Station-Water-Quality-Parameter-Comparison-by-Linear-Regression:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15041,50 +15029,6 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#HIDDEN</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">plot2_output2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="nbinteract-hide_in
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#HIDDEN </span>
-
-<span class="n">tab</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Tab</span><span class="p">()</span>
-<span class="n">tab</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">dropdown_stations</span><span class="p">,</span> <span class="n">dropdown_stations2</span><span class="p">]</span>
-<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Trend Station 1&#39;</span><span class="p">)</span>
-<span class="n">tab</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Trend Station 2&#39;</span><span class="p">)</span>
-<span class="n">tab</span>
 </pre></div>
 
     </div>
